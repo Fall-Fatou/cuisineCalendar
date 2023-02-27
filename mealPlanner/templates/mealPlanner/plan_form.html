@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Title of the page -->
+  <h1>{% if plan.id %}Update{% else %}Create{% endif %} a meal plan</h1>
+
+  <!-- Form for creating/updating a meal plan -->
+  <form method="post">
+    {% csrf_token %}
+
+    <!-- Display the form fields as paragraphs -->
+    {{ form.as_p }}
+
+    <!-- Submit and cancel buttons -->
+    <button type="submit" class="btn btn-primary">{% if plan.id %}Update{% else %}Create{% endif %}</button>
+    <a href="{% url 'plan_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}

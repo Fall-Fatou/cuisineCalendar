@@ -1,0 +1,29 @@
+{% block content %}
+    <!-- display the recipe name -->
+  <h1>Recipe details: {{ recipe.name }}</h1>
+    <!-- display the recipe description -->
+  <h2>Description:</h2>
+    <p>{{ recipe.description }}</p>
+  <h2>Ingredients list:</h2>
+  <ul>
+  <!-- loop through all the ingredients associated with the recipe -->
+    {% for ingredient in ingredients %}
+        <!-- display the name and quantity of each ingredient -->
+       <li>{{ ingredient }}</li>
+    {% empty %}
+        <!-- display a message if there are no ingredients for this recipe -->
+      <li>No ingredients are associated with this recipe yet.</li>
+    {% endfor %}
+  </ul>
+  <h2>Instructions:</h2>
+     <!-- display the recipe instructions -->
+  <p>{{ recipe.instructions }}</p>
+    <p>
+     <!-- display a link to the recipe list -->
+     <a href="{% url 'recipe_list' %}"> 🔙 Back</a>
+    <!-- display a link to edit the recipe -->
+	    <a href="{% url 'recipe_update' recipe.id %}">✍️ Edit</a>
+         <!-- display a link to delete the recipe -->
+	    <a href="{% url 'recipe_delete' recipe.id %}">⛔ Delete</a>
+	</p>
+{% endblock %}

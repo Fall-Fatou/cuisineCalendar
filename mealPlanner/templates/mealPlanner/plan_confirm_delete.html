@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Confirm the deletion of {{ plan.day_of_week }}'s {{ plan.meal_type }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete {{ plan.day_of_week }}'s {{ plan.meal_type }} ?</p>
+    <button type="submit" class="btn btn-danger">Delete</button> <!-- button to confirm deletion -->
+    <a href="{% url 'plan_detail' pk=object.pk %}" class="btn btn-secondary">Cancel</a> <!-- button to cancel deletion and go back to plan detail -->
+  </form>
+{% endblock %}

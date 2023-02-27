@@ -1,0 +1,15 @@
+{% block content %}
+  <h1>Meal plan details</h1>
+  <p><strong>Day of the week:</strong> {{ plan.day_of_week }}</p>
+  <p><strong>Meal:</strong> {{ plan.meal_type }}</p>
+  <p><strong>Recipe:</strong> {{ plan.recipe }}</p>
+  <!-- Link to go back to the plan list -->
+
+<a href="{% url 'plan_list' %}" class="btn btn-secondary"> 🔙Back</a>
+  <!-- Link to go to the plan update page -->
+
+<a href="{% url 'plan_update' plan.id %}" class="btn btn-primary">✍️Update</a>
+  <!-- Link to go to the plan deletion confirmation page -->
+
+<a href="{% url 'plan_delete' plan.id %}" class="btn btn-danger">⛔Delete</a>
+{% endblock %}

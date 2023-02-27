@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}CuisineCalendar{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>CuisineCalendar</h1>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Recipes</a>
+    <a href="#">Meal plans</a>
+  </nav>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2023 CuisineCalendar
+  </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <a href="{% url 'plan_create' %}"><button>Add a new meal plan</button></a>
+  <h1>List of meal plans</h1>
+  {% if plan_list %}
+    <ul>
+      {% for plan in plan_list %}
+        <li><a href="{% url 'plan_detail' plan.id %}">{{ plan }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No meal plan has been created at this time.</p>
+  {% endif %}
+    <a href="{% url 'index' %}"><button>Back to Homepage</button></a>
+{% endblock %}

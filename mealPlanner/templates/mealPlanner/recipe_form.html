@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% if recipe.id %}Update{% else %}Create{% endif %} a recipe</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }} <!-- Uses the as_p method to display the form fields -->
+
+    <button type="submit" class="btn btn-primary">{% if recipe.id %}Update{% else %}Create{% endif %}</button> <!-- Button to submit the form with a different text depending on whether the recipe already exists or not -->
+    <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Cancel</a> <!-- Button to cancel creation or modification and return to the list of recipes -->
+  </form>
+{% endblock %}

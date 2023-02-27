@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Confirm the deletion of "{{ object.name }}"</h1> <!-- Heading to confirm deletion -->
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object.name }}" ?</p> <!-- Confirmation message for deletion -->
+    <button type="submit" class="btn btn-danger">Delete</button> <!-- Button to confirm deletion -->
+    <a href="{% url 'recipe_detail' pk=object.pk %}" class="btn btn-secondary">Cancel</a> <!-- Button to cancel deletion -->
+  </form>
+{% endblock %}
