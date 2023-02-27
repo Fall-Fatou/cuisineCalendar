@@ -1,4 +1,5 @@
-Cuisine Calendar
+Project's name: cuisineCalendar
+Application's name: mealPlanner
 
 Cuisine Calendar is a web application that allows users to create recipes and their meal plan of the week. The project was built using the Django web framework with Python.
 
