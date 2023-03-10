@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -8,6 +9,7 @@ class Recipe(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     ingredients = models.TextField()
     instructions = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -34,10 +36,10 @@ class Plan(models.Model):
     day_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK)
     meal_type = models.CharField(max_length=20, choices=MEAL_TYPES)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.day_of_week} {self.meal_type}"
-
 
     def day_of_week_class(self):
         """
@@ -53,3 +55,4 @@ class Plan(models.Model):
             'Sunday': 'sunday'
         }
         return class_map.get(self.day_of_week, '')
+

@@ -1,8 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from mealPlanner.models import Recipe, Plan
+from .models import Recipe, Plan
 
 
 # View for the home page
@@ -11,9 +12,12 @@ def index(request):
 
 
 # View for the list of recipes
-class RecipeListView(ListView):
+class RecipeListView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = 'mealPlanner/recipe_list.html'
+
+    def get_queryset(self):
+        return Recipe.objects.filter(user=self.request.user)
 
 
 # View for a single recipe
@@ -29,11 +33,15 @@ class RecipeDetailView(DetailView):
 
 
 # View for creating a new recipe
-class RecipeCreateView(CreateView):
+class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = 'mealPlanner/recipe_form.html'
     fields = ['name', 'description', 'ingredients', 'instructions', 'image']
     success_url = reverse_lazy('recipe_list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 # View for updating an existing recipe
@@ -54,13 +62,16 @@ class RecipeDeleteView(DeleteView):
 
 
 # View for the list of meal plans
-class PlanListView(ListView):
+class PlanListView(LoginRequiredMixin, ListView):
     model = Plan
     template_name = 'mealPlanner/plan_list.html'
 
     # Queryset for the list of meal plans
+    '''def get_queryset(self):
+        return Plan.objects.all()'''
+
     def get_queryset(self):
-        return Plan.objects.all()
+        return Plan.objects.filter(user=self.request.user)
 
 
 # View for a single meal plan
@@ -70,7 +81,7 @@ class PlanDetailView(DetailView):
 
 
 # View for creating a new meal plan
-class PlanCreateView(CreateView):
+class PlanCreateView(LoginRequiredMixin, CreateView):
     model = Plan
     template_name = 'mealPlanner/plan_form.html'
     fields = ['day_of_week', 'meal_type', 'recipe']
@@ -80,10 +91,14 @@ class PlanCreateView(CreateView):
         return reverse_lazy('plan_list')
 
     # Method for validating form input
-    def form_valid(self, form):
+    '''def form_valid(self, form):
         response = super().form_valid(form)
         self.object.save()
-        return response
+        return response'''
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 # View for updating an existing meal plan

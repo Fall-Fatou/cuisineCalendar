@@ -1,4 +1,4 @@
-/* règles générales */
+/* general rules */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ a {
   color: #333;
 }
 
-/* en-tête */
+/* header */
 header {
   background-color: #eee;
   padding: 10px;
@@ -34,18 +34,22 @@ nav a {
   display: block;
   padding: 10px;
   margin-right: 10px;
+  color: white;
 }
 
 nav a:hover {
   background-color: #666;
 }
 
-/* contenu principal */
+/* main content */
 main {
   padding: 10px;
 }
 
-/* pied de page */
+main h1 {
+  text-align: center;
+}
+/* footer */
 footer {
   background-color: #eee;
   padding: 10px;
