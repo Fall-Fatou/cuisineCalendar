@@ -1,0 +1,30 @@
+<!-- templates/home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}CuisineCalendar{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <header>
+    <h1>CuisineCalendar</h1>
+  </header>
+
+  <nav>
+    <a href="{% url 'login' %}">Log In</a>
+    <a href="{% url 'signup' %}">Sign Up</a>
+  </nav>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2023 CuisineCalendar
+  </footer>
+</body>
+</html>
