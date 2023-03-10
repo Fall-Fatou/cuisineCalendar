@@ -38,7 +38,6 @@ class Plan(models.Model):
     def __str__(self):
         return f"{self.day_of_week} {self.meal_type}"
 
-
     def day_of_week_class(self):
         """
         Returns the class name for the day of the week to be used in templates

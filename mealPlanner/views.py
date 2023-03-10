@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Recipe, Plan
+from mealPlanner.models import Recipe, Plan
 
 
 # View for the home page
