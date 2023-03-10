@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from mealPlanner import views
 
 urlpatterns = [
     # URL for the home page
