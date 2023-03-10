@@ -4,19 +4,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}CuisineCalendar{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}CuisineCalendar{% endblock %}</title>
+    <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <!-- Font Awesome 6 icons. Delete if not using. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-  <header>
-    <h1>CuisineCalendar</h1>
-  </header>
+<nav class="theme-light menu-drop-shadow menu-sticky"><div class="container-menu menu-desktop">
+	<a href="#" class="brand">
+		<img src="https://lunevedy.com/ui/assets/img/website-logo-sample.png" alt="Sample website logo">
+	</a>
+	<div class="container-menu-links">
 
-  <nav>
-    <a href="{% url 'login' %}">Log In</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
-  </nav>
+		<div class="nav-toggle" id="nav-toggle-btn">
+			<div class="bar-1"></div>
+			<div class="bar-2"></div>
+			<div class="bar-3"></div>
+		</div>
+
+		<ul class="links-wrapper links-bold">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a class="btn btn-outline btn-soft btn-shadow" id="btn-cta" href="{% url 'login' %}"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+		</ul>
+	</div></div></nav>
+
+   	<!-- header starts here -->
+
+    <header class="theme-light cols-2-half header-after-menu-sticky flex-row-reverse">
+
+        <div class="col-2 col-text slide-in-left-desktop">
+			<div class="badge">SAVE 20% THIS WEEK</div>
+            <h1 class="heading-underline">Introducing <span class="highlight">our new</span> product</h1>
+				<ul>
+				<li>Make better decisions with in-progress insights</li>
+					<li>Focus your team on what work should happen next</li>
+					<li>Streamline issues, sprints, and product roadmaps.</li>
+				</ul>
+        	<div class="container-btn">
+                <a href="{% url 'login' %}" class="btn btn-soft btn-shadow btn-solid"><span>Log In</span><i class="fas fa-shopping-cart"></i></a>
+                <a href="{% url 'signup' %}" class="btn btn-outline btn-soft btn-shadow"><span>Sign Up</span><i class="fas fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+
+        <div class="col-2 col-visual slide-in-right-desktop desktop-bleed-all">
+				<figure>
+					<img src="{% static 'image/logo3.png' %}" alt="Placeholder image">
+				</figure>
+  </div>
+
+    </header>
+
+
+	<!-- header ends here -->
+
+
 
   <main>
     {% block content %}
