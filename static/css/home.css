@@ -1,77 +1,128 @@
-header.theme-light h1.heading-underline::after { background-color: var(--orange-500) }
-header.theme-light .badge { background-color: var(--amber-600) }
-header.theme-light .container-btn a.btn:nth-child(1):link,
-header.theme-light .container-btn a.btn:nth-child(1):visited { border-color: var(--orange-500) }
+/* Set background color for the pseudo-element after h1 element */
+header.theme-light h1.heading-underline::after {
+background-color: #FF6F00;
+}
 
+/* Set background color for the badge */
+header.theme-light .badge {
+background-color: #FF6F00;
+}
+
+/* Set border color for the first button when in normal and visited state */
+header.theme-light .container-btn a.btn:nth-child(1):link,
+header.theme-light .container-btn a.btn:nth-child(1):visited {
+border-color: #FF6F00;
+}
+
+/* Set border color for the first button when in focus, hover, and active state */
 header.theme-light .container-btn a.btn:nth-child(1):focus,
 header.theme-light .container-btn a.btn:nth-child(1):hover,
-header.theme-light .container-btn a.btn:nth-child(1):active { border-color: var(--orange-700) }
+header.theme-light .container-btn a.btn:nth-child(1):active {
+border-color: #F57C00;
+}
 
+/* Set border color for the second button when in normal and visited state */
 header.theme-light .container-btn a.btn:nth-child(2):link,
-header.theme-light .container-btn a.btn:nth-child(2):visited { border-color: var(--orange-500) }
+header.theme-light .container-btn a.btn:nth-child(2):visited {
+border-color: #FF6F00;
+}
 
+/* Set border color for the second button when in focus, hover, and active state */
 header.theme-light .container-btn a.btn:nth-child(2):focus,
 header.theme-light .container-btn a.btn:nth-child(2):hover,
-header.theme-light .container-btn a.btn:nth-child(2):active { border-color: var(--orange-700) }
+header.theme-light .container-btn a.btn:nth-child(2):active {
+border-color: #F57C00;
+}
 
-header.theme-light h1 span.highlight { color: var(--pink-700) }
+/* Styles the highlighted text in the header */
+header.theme-light h1 span.highlight {
+color: #C2185B;
+}
+
+/* Styles the navigation menu and active links wrapper */
 nav.theme-light,
-nav.theme-light ul.links-wrapper.active { background-color: var(--white-000) }
-nav.theme-light,
-nav.theme-light ul.links-wrapper.active { background-color: var(--white-000) }
+nav.theme-light ul.links-wrapper.active {
+background-color: #ffff;
+}
+
+/* Styles the links in the navigation menu */
 nav.theme-light ul.links-wrapper li a:link,
-nav.theme-light ul.links-wrapper li a:visited { color: var(--pink-700) }
+nav.theme-light ul.links-wrapper li a:visited {
+color: #C2185B;
+}
+
+/* Styles the focused, hovered, and active states of the links */
 nav.theme-light ul.links-wrapper li a:focus,
 nav.theme-light ul.links-wrapper li a:hover,
-nav.theme-light ul.links-wrapper li a:active { color: var(--pink-900) }
+nav.theme-light ul.links-wrapper li a:active {
+color: #AD1457;
+}
+
+/* Styles the call-to-action button */
 nav.theme-light a#btn-cta:link,
-nav.theme-light a#btn-cta:visited { border-color: var(--orange-500) }
+nav.theme-light a#btn-cta:visited {
+border-color: #FF6F00;
+}
+
+/* Styles the focused, hovered, and active states of the button */
 nav.theme-light a#btn-cta:focus,
 nav.theme-light a#btn-cta:hover,
-nav.theme-light a#btn-cta:active { border-color: var(--orange-700) }
+nav.theme-light a#btn-cta:active {
+border-color: #F57C00;
+}
+
+/* Styles the navigation toggle bars when the menu is sticky and on scroll */
 nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-1,
 nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-2,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-3 { background-color: var(--white-000) }
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-1,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-2,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-3 { background-color: var(--white-000) }
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-1,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-2,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-3 { background-color: var(--white-000) }
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-1,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-2,
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-3 { background-color: var(--white-000) }
-nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle { background-color: var(--white-000) }
+nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle .bar-3 {
+background-color: #ffff;
+}
+
+/* Styles the navigation toggle when the menu is sticky and on scroll */
+nav.theme-light.menu-sticky.menu-on-scroll .nav-toggle {
+background-color: #ffff;
+}
+
+/* Styles the second button in the header container */
 header.theme-light .container-btn a.btn:nth-child(2):link,
-header.theme-light .container-btn a.btn:nth-child(2):visited { color: var(--pink-700) }
-
-header.theme-light .container-btn a.btn:nth-child(2):focus,
-header.theme-light .container-btn a.btn:nth-child(2):hover,
-header.theme-light .container-btn a.btn:nth-child(2):active { color: var(--pink-900) }
+header.theme-light .container-btn a.btn:nth-child(2):visited {
+color: #C2185B;
+}
+header.theme-light .container-btn a.btn:nth-child(1):focus,
+header.theme-light .container-btn a.btn:nth-child(1):hover,
+header.theme-light .container-btn a.btn:nth-child(1):active { color: #AD1457 }
 
 header.theme-light .container-btn a.btn:nth-child(1):link,
-header.theme-light .container-btn a.btn:nth-child(1):visited { color: var(--pink-700) }
+header.theme-light .container-btn a.btn:nth-child(1):visited { background-color: #ffff }
 
 header.theme-light .container-btn a.btn:nth-child(1):focus,
 header.theme-light .container-btn a.btn:nth-child(1):hover,
-header.theme-light .container-btn a.btn:nth-child(1):active { color: var(--pink-900) }
-
-header.theme-light .container-btn a.btn:nth-child(1):link,
-header.theme-light .container-btn a.btn:nth-child(1):visited { background-color: var(--white-000) }
-
-header.theme-light .container-btn a.btn:nth-child(1):focus,
-header.theme-light .container-btn a.btn:nth-child(1):hover,
-header.theme-light .container-btn a.btn:nth-child(1):active { background-color: var(--orange-500) }
+header.theme-light .container-btn a.btn:nth-child(1):active { background-color: #FF6F00 }
 
 header.theme-light .container-btn a.btn:nth-child(2):focus,
 header.theme-light .container-btn a.btn:nth-child(2):hover,
-header.theme-light .container-btn a.btn:nth-child(2):active { background-color: var(--orange-500) }
+header.theme-light .container-btn a.btn:nth-child(2):active { background-color: #FF6F00 }
 
 nav.theme-light a#btn-cta:focus,
 nav.theme-light a#btn-cta:hover,
-nav.theme-light a#btn-cta:active { background-color: var(--orange-500) }
-header.theme-light { background-color: var(--white-000) }
+nav.theme-light a#btn-cta:active { background-color: #FF6F00 }
+header.theme-light { background-color: #ffff }
 
+.section-selector-1 { background-color: #ffff }
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:focus,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:hover,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:active { color: #AD1457 }
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:link,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:visited { color: #C2185B }
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:focus,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:hover,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:active { color: #AD1457 }
+.section-selector-1 div[class^='col-'] a[class^='col-']:link, .section-selector-1 div[class^='col-'] a[class^='col-']:visited { text-decoration-color: #FF6F00 }
+.section-selector-1 div[class^='col-'] a[class^='col-']:focus, .section-selector-1 div[class^='col-'] a[class^='col-']:hover, .section-selector-1 div[class^='col-'] a[class^='col-']:active { text-decoration-color: #F57C00 }
+.section-selector-1 .col-3 p { color: #0000 }
+.section-selector-1 .col-3 li { color: #0000 }
+.section-selector-1.theme-light .cols-background .col-3 { background-color: #CFD8DC }
+.section-selector-1.theme-light .cols-shadows .col-3 { box-shadow: rgba(0, 0, 0, 0.2) 14px 14px 14px 0}
 
 
 /* footer */

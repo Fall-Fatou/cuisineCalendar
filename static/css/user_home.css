@@ -1,0 +1,77 @@
+header.theme-dark h1 { color: black }
+header.theme-dark h1 span.highlight { color: #C2185B}
+header.theme-dark h2 { color: black }
+header.hero-bg > .container-overlay { background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)); }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #ffff }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #ffff }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #29B6F6 }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #ffff }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #00ff0000 }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: black }
+nav.theme-dark,
+nav.theme-dark ul.links-wrapper.active { background-color: #ffff }
+nav.theme-dark ul.links-wrapper li a:link,
+nav.theme-dark ul.links-wrapper li a:visited { color: #C2185B}
+nav.theme-dark ul.links-wrapper li a:focus,
+nav.theme-dark ul.links-wrapper li a:hover,
+nav.theme-dark ul.links-wrapper li a:active { color: #AD1457 }
+nav.theme-dark a#btn-cta:link,
+nav.theme-dark a#btn-cta:visited { color: #C2185B}
+nav.theme-dark a#btn-cta:link,
+nav.theme-dark a#btn-cta:visited { border-color: #FF6F00 }
+nav.theme-dark a#btn-cta:focus,
+nav.theme-dark a#btn-cta:hover,
+nav.theme-dark a#btn-cta:active { border-color: #F57C00 }
+nav.theme-dark a#btn-cta:focus,
+nav.theme-dark a#btn-cta:hover,
+nav.theme-dark a#btn-cta:active { background-color: #F57C00 }
+header.theme-dark h1.heading-underline::after { background-color: #FF6F00 }
+
+
+.section-selector-1 { background-color: #ffff }
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:focus,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:hover,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:active { color: #AD1457 }
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:link,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:visited { color: #C2185B}
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:focus,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:hover,
+.section-selector-1 .flex-cols-3 .col-3 a.col-3-h3:active { color: #AD1457 }
+.section-selector-1 div[class^='col-'] a[class^='col-']:link, .section-selector-1 div[class^='col-'] a[class^='col-']:visited { text-decoration-color: #FF6F00 }
+.section-selector-1 div[class^='col-'] a[class^='col-']:focus, .section-selector-1 div[class^='col-'] a[class^='col-']:hover, .section-selector-1 div[class^='col-'] a[class^='col-']:active { text-decoration-color: #F57C00 }
+.section-selector-1 .col-3 p { color: black }
+.section-selector-1 .col-3 li { color: black }
+.section-selector-1.theme-light .cols-background .col-3 { background-color: #F5F5F5 }
+.section-selector-1.theme-light .cols-shadows .col-3 { box-shadow: rgba(0, 0, 0, 0.2) 14px 14px 14px 0}
+.section-selector-1 a.btn:link,
+.section-selector-1 a.btn:visited { color: #C2185B}
+
+.section-selector-1 a.btn:focus,
+.section-selector-1 a.btn:hover,
+.section-selector-1 a.btn:active { color: #AD1457 }
+
+.section-selector-1 a.btn:focus,
+.section-selector-1 a.btn:hover,
+.section-selector-1 a.btn:active { background-color: #FF6F00 }
+
+.section-selector-1 a.btn:link,
+.section-selector-1 a.btn:visited { border-color: #FF6F00 }
+
+.section-selector-1 a.btn:focus,
+.section-selector-1 a.btn:hover,
+.section-selector-1 a.btn:active { border-color: #F57C00 }
+
+
+/* footer */
+footer {
+  background-color: #eee;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8em;
+}

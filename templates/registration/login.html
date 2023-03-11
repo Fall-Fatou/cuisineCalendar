@@ -1,13 +1,20 @@
-<!-- templates/registration/login.html -->
+<!-- Inheriting from the 'base.html' template -->
 {% extends 'base.html' %}
 
+<!-- Setting the title for this page -->
 {% block title %}Login{% endblock %}
 
+<!-- Setting the content for this page -->
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+
+  <h2>Log In</h2>
+  <!-- Displaying the heading for the login form -->
+  <form method="post">
+    {% csrf_token %}
+    <!-- Including a CSRF token for security reasons -->
+    {{ form.as_p }}
+    <!-- Displaying the form fields as paragraphs -->
+    <button type="submit">Log In</button>
+    <!-- Displaying the submit button for the form -->
+  </form>
 {% endblock %}

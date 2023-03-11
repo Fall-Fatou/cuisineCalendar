@@ -3,73 +3,170 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>{% block title %}CuisineCalendar{% endblock %}</title>
+    <!-- section ends here -->
     <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-    <!-- Font Awesome 6 icons. Delete if not using. -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome 6 icons. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-</head>
-<body>
-<nav class="theme-light menu-drop-shadow menu-sticky"><div class="container-menu menu-desktop">
-	<a href="#" class="brand">
-		<img src="{% static 'image/logo5_transparent.png' %}" alt="Sample website logo">
-	</a>
-	<div class="container-menu-links">
-
-		<div class="nav-toggle" id="nav-toggle-btn">
-			<div class="bar-1"></div>
-			<div class="bar-2"></div>
-			<div class="bar-3"></div>
+    <!-- Homepage for authenticated users -->
+    {% if user.is_authenticated %}
+    <link rel="stylesheet" href="{% static 'css/user_home.css' %}">
+   <!-- Navigation bar for authenticated users -->
+    <nav class="menu-sticky theme-dark">
+      <div class="container-menu">
+        <a href="#" class="brand">
+          <img src="{% static 'image/logo5_transparent.png' %}" alt="Sample website logo">
+        </a>
+        <div class="container-menu-links">
+          <div class="nav-toggle" id="nav-toggle-btn">
+            <div class="bar-1"></div>
+            <div class="bar-2"></div>
+            <div class="bar-3"></div>
+          </div>
+          <!-- Links to different pages -->
+          <ul class="links-wrapper links-bold">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'plan_list' %}">Plans</a></li>
+            <li><a href="{% url 'recipe_list' %}">Recipes</a></li>
+            <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
+            <li><a class="btn btn-outline btn-soft" id="btn-cta" href="{% url 'logout' %}"><span>Log Out</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header section for authenticated users -->
+    <header class="theme-dark hero-bg text-center-desktop header-after-menu-sticky desktop-min-height-80vh">
+      <div class="container-text reveal-scale-in-header w-50">
+        <h1 class="text-shadow heading-underline">Hello <span class="highlight">{{ user.username }}!</span></h1>
+        <h2>Welcome to your meal planner app</h2>
+      </div>
+      <div class="container-media">
+        <img src="{% static 'image/background_image.png' %}" alt="Placeholder image">
+      </div>
+      <div class="container-overlay"></div>
+    </header>
+  <main>
+	<!-- section starts here -->
+    <!-- Section containing links to different pages -->
+	<section class="theme-light section-selector-1">
+	<!-- Begin three-column flexbox grid -->
+		<div class="flex-cols-3 cols-gap-2 text-center cols-padding cols-shadows cols-corners-soft">
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<a href="{% url 'plan_list' %}"><img src="{% static 'image/background_image3.png' %}" alt="Placeholder image"></a>
+				</figure><a href="{% url 'plan_list' %}" class="col-3-h3">Meal Plans</a>
+				<a href="{% url 'plan_list' %}" class="btn btn-soft btn-shadow btn-outline"><span>View Plans</span><i class="fas fa-arrow-right"></i></a>
+			</div>
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<a href="{% url 'recipe_list' %}"><img src="{% static 'image/couverture2.jpg' %}" alt="Placeholder image"></a>
+				</figure><a href="{% url 'recipe_list' %}" class="col-3-h3">Recipes</a>
+				<a href="{% url 'recipe_list' %}" class="btn btn-soft btn-shadow btn-outline"><span>View Recipes</span><i class="fas fa-arrow-right"></i></a>
+			</div>
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<a href="#"><img src="{% static 'image/shopping_list3.jpg' %}" alt="Placeholder image"></a>
+				</figure><a href="#" class="col-3-h3">Shopping List</a>
+				<a href="#" class="btn btn-soft btn-shadow btn-outline"><span>View List</span><i class="fas fa-arrow-right"></i></a>
+			</div>
 		</div>
-
-		<ul class="links-wrapper links-bold">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a class="btn btn-outline btn-soft btn-shadow" id="btn-cta" href="{% url 'login' %}"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-		</ul>
-	</div></div></nav>
-
-   	<!-- header starts here -->
-
+		<!-- End three-column flexbox grid -->
+	</section>
+	<!-- section ends here -->
+  </main>
+         <!-- Homepage for non-authenticated users -->
+    {% else %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+    <body>
+    <!-- Navigation bar -->
+    <nav class="theme-light menu-drop-shadow menu-sticky">
+        <div class="container-menu menu-desktop">
+            <!-- Website logo -->
+            <a href="#" class="brand">
+                <img src="{% static 'image/logo5_transparent.png' %}" alt="Sample website logo">
+            </a>
+            <div class="container-menu-links">
+                <!-- Hamburger menu icon for mobile devices -->
+                <div class="nav-toggle" id="nav-toggle-btn">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+                <!-- Navigation links -->
+                <ul class="links-wrapper links-bold">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a class="btn btn-outline btn-soft btn-shadow" id="btn-cta" href="{% url 'login' %}"><span>Log In</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header section -->
     <header class="theme-light cols-2-half header-after-menu-sticky flex-row-reverse">
-
+        <!-- Left column of header section -->
         <div class="col-2 col-text slide-in-left-desktop">
-			<div class="badge">SAVE 20% THIS WEEK</div>
-            <h1 class="heading-underline">Introducing <span class="highlight">our new</span> product</h1>
-				<ul>
-				<li>Make better decisions with in-progress insights</li>
-					<li>Focus your team on what work should happen next</li>
-					<li>Streamline issues, sprints, and product roadmaps.</li>
-				</ul>
-        	<div class="container-btn">
-                <a href="{% url 'login' %}" class="btn btn-soft btn-shadow btn-solid"><span>Log In</span><i class="fas fa-shopping-cart"></i></a>
+            <!-- Header tagline -->
+            <div class="badge">Effortlessly plan your meals</div>
+            <h1 class="heading-underline">Welcome to <span class="highlight">Cuisine Calendar</span></h1>
+            <!-- Bullet points about the website's features -->
+            <ul>
+                <li>Plan your meals like a pro.</li>
+                <li>Add and create your favorite recipes</li>
+                <li>Generate a grocery list based on the ingredients in your saved recipes</li>
+            </ul>
+            <!-- Sign-up and sign-in buttons -->
+            <div class="container-btn">
+                <a href="{% url 'login' %}" class="btn btn-soft btn-shadow btn-solid"><span>Sign In</span><i class="fas fa-arrow-right"></i></a>
                 <a href="{% url 'signup' %}" class="btn btn-outline btn-soft btn-shadow"><span>Sign Up</span><i class="fas fa-arrow-right"></i></a>
             </div>
-
         </div>
-
+        <!-- Right column of header section -->
         <div class="col-2 col-visual slide-in-right-desktop desktop-bleed-all">
-				<figure>
-					<img src="{% static 'image/logo3.png' %}" alt="Placeholder image">
-				</figure>
-  </div>
-
+            <!-- Image on the right side of the header section -->
+            <figure>
+                <img src="{% static 'image/logo3.png' %}" alt="Placeholder image">
+            </figure>
+        </div>
     </header>
-
-
-	<!-- header ends here -->
-
-
-
   <main>
     {% block content %}
+	<!-- section starts here -->
+	<section class="theme-light section-selector-1">
+		<!-- Begin three-column flexbox grid -->
+		<div class="flex-cols-3 cols-gap-2 text-center cols-padding cols-shadows cols-corners-soft">
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<img src="{% static 'image/background_image2.png' %}" alt="Placeholder image">
+				</figure><a href="{% url 'login' %}" class="col-3-h3">Meal Planner</a>
+			<p>Plan your meals like a pro with our app.</p>
+			</div>
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<img src="{% static 'image/couverture.jpg' %}" alt="Placeholder image">
+				</figure><a href="{% url 'login' %}" class="col-3-h3">Create Recipes</a>
+			<p>Easily add and create your favorite recipes with our app's recipe management feature</p>
+			</div>
+			<div class="col-3">
+				<figure class="photos-zoom photos-brightness">
+					<img src="{% static 'image/shopping_list2.jpg' %}" alt="Placeholder image">
+				</figure><a href="{% url 'login' %}" class="col-3-h3">Shopping List</a>
+			<p>Effortlessly generate a grocery list based on the ingredients in your saved recipes</p>
+
+			</div>
+		</div>
+		<!-- End three-column flexbox grid -->
+	</section>
+	<!-- section ends here -->
     {% endblock %}
   </main>
-
+    {% endif %}
   <footer>
     &copy; 2023 CuisineCalendar
   </footer>

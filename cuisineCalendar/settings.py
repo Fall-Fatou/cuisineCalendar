@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mealplanner',
         'USER': 'root',
-        'PASSWORD': 'AmadouSow1290521',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
     }
 }
@@ -129,7 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = "index"  # new
+LOGIN_REDIRECT_URL = "home"  # new
 LOGOUT_REDIRECT_URL = "home"  # new
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"  # new
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"  # new
