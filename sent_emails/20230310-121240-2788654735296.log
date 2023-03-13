@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: 72046@student.dorset-college.ie
+Date: Fri, 10 Mar 2023 12:12:40 -0000
+Message-ID: <167845036004.12544.5717598011201860270@FATOU>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset/MQ/bkuhx4-eb31b5ffedff56757e5902d3b2a53c86/
+
+Your username, in case you’ve forgotten: fallf
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
