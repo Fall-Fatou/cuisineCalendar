@@ -2,16 +2,18 @@
 
 {% block content %}
 
-  <a href="{% url 'plan_create' %}"><button>Add a new meal plan</button></a>
   <h1>List of meal plans</h1>
   {% if plan_list %}
     <ul>
       {% for plan in plan_list %}
-        <li><a href="{% url 'plan_detail' plan.id %}">{{ plan }}</a></li>
+        <li><a href="{% url 'plan_detail' plan.id %}">{{ plan }}</a></li> <!-- Display the name of the plan with a link to its detail page -->
       {% endfor %}
     </ul>
   {% else %}
-    <p>No meal plan has been created at this time.</p>
+    <p>No meal plan has been created at this time.</p> <!-- Display a message if there are no meal plans -->
   {% endif %}
-    <a href="{% url 'index' %}"><button>Back to Homepage</button></a>
+  <div class="button-container">
+    <a href="{% url 'plan_create' %}"><button>Add a new meal plan</button></a> <!-- Button to create a new meal plan -->
+    <a href="{% url 'home' %}"><button>Back to Homepage</button></a> <!-- Button to go back to the homepage -->
+  </div>
 {% endblock %}

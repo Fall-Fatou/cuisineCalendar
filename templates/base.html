@@ -8,16 +8,17 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header>
-    <h1>CuisineCalendar</h1>
-  </header>
-
   <nav>
+    <a href="#" class="brand brand-logo">
+        <img src="{% static 'image/logo5_transparent.png' %}" alt="Sample website logo">
+    </a>
     <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'plan_list' %}">Plans</a>
     <a href="{% url 'recipe_list' %}">Recipes</a>
-    <a href="{% url 'plan_list' %}">Meal plans</a>
-    <a href="{% url 'logout' %}">Log Out</a>
-    <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+    <a href="{% url 'password_reset' %}">Reset Password</a>
+    <a href="{% url 'logout' %}"><button>Log Out</button></a>
+
+
   </nav>
 
   <main>
@@ -30,3 +31,7 @@
   </footer>
 </body>
 </html>
+
+
+
+

@@ -1,8 +1,20 @@
 /* general rules */
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -60px;
+}
+
+.content {
+  padding-bottom: 60px;
 }
 
 a {
@@ -20,13 +32,12 @@ header {
 header h1 {
   margin: 0;
 }
-
-/* navigation */
+/*navigation*/
 nav {
-  background-color: #333;
+  background-color: #ffffff;
   color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -34,25 +45,98 @@ nav a {
   display: block;
   padding: 10px;
   margin-right: 10px;
-  color: white;
+  color: #C2185B;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 nav a:hover {
-  background-color: #666;
+  color: #FF6F00;
 }
+
+nav a.brand {
+  margin-right: auto;
+}
+
+nav a.brand img {
+  margin-right: 10px;
+}
+
 
 /* main content */
 main {
   padding: 10px;
+  flex: 1 0 auto;
+  text-align: center;
 }
 
-main h1 {
+main ul{
   text-align: center;
+  list-style-position: inside;
+}
+
+/*button*/
+button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-justify: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 3px double #F57C00;
+  font-weight: bold;
+  color: #C2185B;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  width: 200px;
+  height: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 10px;
+}
+main .button-container{
+  margin-top: 30px;
+}
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover {
+  background-color: #FF6F00;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+main h1{
+  color: #C2185B;;
 }
 /* footer */
 footer {
+  height: 60px;
   background-color: #eee;
   padding: 10px;
   text-align: center;
   font-size: 0.8em;
 }
+
+

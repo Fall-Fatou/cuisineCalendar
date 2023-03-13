@@ -85,9 +85,15 @@ background-color: #ffff;
 
 /* Styles the second button in the header container */
 header.theme-light .container-btn a.btn:nth-child(2):link,
-header.theme-light .container-btn a.btn:nth-child(2):visited {
-color: #C2185B;
-}
+header.theme-light .container-btn a.btn:nth-child(2):visited { color: #C2185B }
+
+header.theme-light .container-btn a.btn:nth-child(2):focus,
+header.theme-light .container-btn a.btn:nth-child(2):hover,
+header.theme-light .container-btn a.btn:nth-child(2):active { color: #AD1457 }
+
+header.theme-light .container-btn a.btn:nth-child(1):link,
+header.theme-light .container-btn a.btn:nth-child(1):visited { color: #C2185B }
+
 header.theme-light .container-btn a.btn:nth-child(1):focus,
 header.theme-light .container-btn a.btn:nth-child(1):hover,
 header.theme-light .container-btn a.btn:nth-child(1):active { color: #AD1457 }

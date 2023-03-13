@@ -17,7 +17,7 @@ class RecipeListView(LoginRequiredMixin, ListView):
     template_name = 'mealPlanner/recipe_list.html'
 
     def get_queryset(self):
-        return Recipe.objects.filter(user=self.request.user)
+        return Recipe.objects.filter(user=self.request.user)  # Get all recipes created by the logged-in user
 
 
 # View for a single recipe
@@ -71,7 +71,7 @@ class PlanListView(LoginRequiredMixin, ListView):
         return Plan.objects.all()'''
 
     def get_queryset(self):
-        return Plan.objects.filter(user=self.request.user)
+        return Plan.objects.filter(user=self.request.user)  # Return only the meal plans created by the current user
 
 
 # View for a single meal plan
@@ -91,14 +91,10 @@ class PlanCreateView(LoginRequiredMixin, CreateView):
         return reverse_lazy('plan_list')
 
     # Method for validating form input
-    '''def form_valid(self, form):
-        response = super().form_valid(form)
-        self.object.save()
-        return response'''
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+    def form_valid(self, form):  # new
+        form.instance.user = self.request.user  # Set the user instance of the form to the currently logged-in user
+        return super().form_valid(form)  # Call the parent class' form_valid() method with the modified form as argument
 
 
 # View for updating an existing meal plan
