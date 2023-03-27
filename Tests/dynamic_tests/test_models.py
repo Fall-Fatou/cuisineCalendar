@@ -3,43 +3,6 @@ from mealPlanner.models import Plan, Recipe
 from django.contrib.auth.models import User
 
 
-class TestPlanModel(TestCase):
-    def setUp(self):
-        # Creating a user for the tests
-        self.user = User.objects.create_user(username="testuser", password="testpass")
-        # Creating a recipe
-        self.recipe = Recipe.objects.create(
-            name="salade au thon",
-            description="easy",
-            image="",
-            ingredients="salade, 1 thon",
-            instructions="mélanger le tout",
-            user=self.user
-        )
-
-        # Creating a plan object with the recipe
-        self.plan = Plan.objects.create(
-            day_of_week="Monday",
-            meal_type="Dinner",
-            recipe=self.recipe,
-            user=self.user
-        )
-
-    def test_plan_model_str(self):
-        # Testing if the __str__ method of Plan returns the expected string
-        self.assertEqual(str(self.plan), "Monday Dinner - salade au thon")
-
-    def test_plan_day_of_week_label(self):
-        # Testing if the verbose name of the 'day_of_week' field of Plan is 'day of week'
-        field_label = self.plan._meta.get_field('day_of_week').verbose_name
-        self.assertEqual(field_label, 'day of week')
-
-    def test_plan_meal_type_label(self):
-        # Testing if the verbose name of the 'meal_type' field of Plan is 'meal type'
-        field_label = self.plan._meta.get_field('meal_type').verbose_name
-        self.assertEqual(field_label, 'meal type')
-
-
 class TestRecipeModel(TestCase):
     def setUp(self):
         # Creating a user for the tests
@@ -88,3 +51,86 @@ class TestRecipeModel(TestCase):
                  this recipe."""
         help_text = self.recipe._meta.get_field('instructions').help_text
         self.assertEqual(help_text, 'Step-by-step instructions for making this recipe.')
+
+
+class TestPlanModel(TestCase):
+    def setUp(self):
+        # Creating a user for the tests
+        self.user = User.objects.create_user(username="testuser", password="testpass")
+        # Creating a recipe
+        self.recipe = Recipe.objects.create(
+            name="salade au thon",
+            description="easy",
+            image="",
+            ingredients="salade, 1 thon",
+            instructions="mélanger le tout",
+            user=self.user
+        )
+
+        # Creating a plan object with the recipe
+        self.plan = Plan.objects.create(
+            day_of_week="Monday",
+            meal_type="Dinner",
+            recipe=self.recipe,
+            user=self.user
+        )
+
+    def test_plan_model_str(self):
+        # Testing if the __str__ method of Plan returns the expected string
+        self.assertEqual(str(self.plan), "Monday Dinner - salade au thon")
+
+    def test_plan_day_of_week_label(self):
+        # Testing if the verbose name of the 'day_of_week' field of Plan is 'day of week'
+        field_label = self.plan._meta.get_field('day_of_week').verbose_name
+        self.assertEqual(field_label, 'day of week')
+
+    def test_plan_meal_type_label(self):
+        # Testing if the verbose name of the 'meal_type' field of Plan is 'meal type'
+        field_label = self.plan._meta.get_field('meal_type').verbose_name
+        self.assertEqual(field_label, 'meal type')
+
+    def test_plan_recipe_label(self):
+        # Testing if the verbose name of the 'recipe' field of Plan is 'recipe'
+        field_label = self.plan._meta.get_field('recipe').verbose_name
+        self.assertEqual(field_label, 'recipe')
+
+    def test_plan_user_label(self):
+        # Testing if the verbose name of the 'user' field of Plan is 'user'
+        field_label = self.plan._meta.get_field('user').verbose_name
+        self.assertEqual(field_label, 'user')
+
+    def test_plan_day_of_week_max_length(self):
+        # Testing if the max length of the 'day_of_week' field of Plan is 20
+        max_length = self.plan._meta.get_field('day_of_week').max_length
+        self.assertEqual(max_length, 20)
+
+    def test_plan_day_of_week_choices(self):
+        # Testing if the choices of the 'day_of_week' field of Plan are "DAYS_OF_WEEK"
+        choices = self.plan._meta.get_field('day_of_week').choices
+        self.assertEqual(choices, (('Monday', 'Monday'),
+                                   ('Tuesday', 'Tuesday'),
+                                   ('Wednesday', 'Wednesday'),
+                                   ('Thursday', 'Thursday'),
+                                   ('Friday', 'Friday'),
+                                   ('Saturday', 'Saturday'),
+                                   ('Sunday', 'Sunday')))
+
+    def test_plan_meal_type_max_length(self):
+        # Testing if the max length of the 'meal_type' field of Plan is 20
+        max_length = self.plan._meta.get_field('meal_type').max_length
+        self.assertEqual(max_length, 20)
+
+    def test_plan_meal_type_choices(self):
+        # Testing if the choices of the 'meal_type' field of Plan are "MEAL_TYPES"
+        choices = self.plan._meta.get_field('meal_type').choices
+        self.assertEqual(choices, (('Breakfast', 'breakfast'), ('Lunch', 'lunch'), ('Dinner', 'dinner')))
+
+    def test_recipe_is_foreign_key(self):
+        # Testing if the 'recipe' field of Plan is Foreignkey
+        self.assertIsInstance(self.recipe, Recipe)
+
+    def test_user_is_foreign_key(self):
+        # Testing if the 'user' field of Plan is Foreignkey
+        self.assertIsInstance(self.user, User)
+
+

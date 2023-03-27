@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'cuisineCalendar.urls'
 
 TEMPLATES = [
@@ -86,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mealplanner',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'AmadouSow1290521',
         'HOST': 'localhost',
     }
 }
