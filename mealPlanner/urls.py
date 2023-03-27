@@ -2,8 +2,6 @@ from django.urls import path
 from mealPlanner import views
 
 urlpatterns = [
-    # URL for the home page
-    path('', views.index, name='index'),
 
 
     # URL for recipes

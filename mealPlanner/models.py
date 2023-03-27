@@ -5,10 +5,10 @@ from django.db import models
 class Recipe(models.Model):
     # Defining fields for Recipe model
     name = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(max_length=500)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     ingredients = models.TextField()
-    instructions = models.TextField()
+    instructions = models.TextField(help_text='Step-by-step instructions for making this recipe.', max_length=1000)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -28,9 +28,9 @@ class Plan(models.Model):
     )
     # Defining choices for meal type
     MEAL_TYPES = (
-        ('breakfast', 'Breakfast'),
-        ('lunch', 'Lunch'),
-        ('dinner', 'Dinner')
+        ('Breakfast', 'breakfast'),
+        ('Lunch', 'lunch'),
+        ('Dinner', 'dinner')
     )
     # Defining fields for Plan model
     day_of_week = models.CharField(max_length=20, choices=DAYS_OF_WEEK)
@@ -39,7 +39,7 @@ class Plan(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.day_of_week} {self.meal_type}"
+        return f"{self.day_of_week} {self.meal_type} - {self.recipe}"
 
     def day_of_week_class(self):
         """

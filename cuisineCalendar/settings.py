@@ -9,8 +9,16 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import os
 from pathlib import Path
+from cuisineCalendar.keys import SECRET_KEY
+
+import os
+
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'dev')
+if ENVIRONMENT == 'dev':
+    from .settings_dev import *
+elif ENVIRONMENT == 'test':
+    from .settings_test import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i-&r*^@8+b3*0$bjlmwu0g!u9q2kqw&b88b!3!ogigeyvy(t-b'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'cuisineCalendar.urls'
 

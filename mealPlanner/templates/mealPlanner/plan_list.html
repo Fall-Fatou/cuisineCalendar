@@ -1,19 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Heading for the list of recipes -->
+    <h1>List of meal plans</h1>
 
-  <h1>List of meal plans</h1>
-  {% if plan_list %}
-    <ul>
-      {% for plan in plan_list %}
-        <li><a href="{% url 'plan_detail' plan.id %}">{{ plan }}</a></li> <!-- Display the name of the plan with a link to its detail page -->
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No meal plan has been created at this time.</p> <!-- Display a message if there are no meal plans -->
-  {% endif %}
-  <div class="button-container">
-    <a href="{% url 'plan_create' %}"><button>Add a new meal plan</button></a> <!-- Button to create a new meal plan -->
-    <a href="{% url 'home' %}"><button>Back to Homepage</button></a> <!-- Button to go back to the homepage -->
-  </div>
+    <!-- Displaying all the plan as cards in a grid -->
+    <div class="row">
+        {% for plan in object_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Displaying plan day and meal type -->
+                    <div class="card-body">
+                        <h2 class="card-title">{{ plan.day_of_week }} - {{ plan.meal_type }}</h2>
+                        <h3 class="card-text">{{ plan.recipe }}</h3>
+                        <!-- Link to view recipe details -->
+                        <a href="{% url 'recipe_detail' plan.recipe.id %}" class="btn btn-primary">📜View recipe</a>
+                        <a href="{% url 'plan_detail' plan.id %}" class="btn btn-primary">📜View plan</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <!-- Display message if no recipes are available -->
+            <p>No plan has been created at this time.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Link to add a new recipe and to go back to the homepage -->
+        <div class="button-container">
+  <a href="{% url 'home' %}"><button>Back to Homepage</button></a>
+  <a href="{% url 'plan_create' %}"><button>Add a new meal plan</button></a>
+</div>
 {% endblock %}

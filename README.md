@@ -4,23 +4,37 @@ Application's name: mealPlanner
 
 Cuisine Calendar is a web application that allows users to create recipes and plan their meals for the week. The project was built using the Django web framework with Python. 
 
-Features: 
+Testing Methodology and Coverage
+We have two folders in the Tests app for testing: manual_tests and dynamic_tests. In each folder, we have two test files: test_views.py and test_models.py. 
+We are using Django's built-in testing framework, and we have aimed for 100% test coverage. In manual_tests, we test the application manually by going through each feature and making sure it works as expected. In dynamic_tests, we use automated tests to check the functionality of the application.
+Running the Tests
+To run the manual tests, use the following command:
 
-1.Create recipes: To create a new recipe, go to the "Add a new recipe" page. This will take you to a form where you can enter the recipe's title, description, ingredients, and instructions. Once you've entered all the necessary information, click "Create" to create your recipe. 
- 
-2.Create meal plans: To create a new plan, go to the "Add a new meal plan" page. This will take you to a form where you can enter the day of the week, the meal type, and the recipe for this meal. Once you've entered all the necessary information, click "Create" to create your plan. 
- 
-3.Browse recipes: To browse recipes, go to the "Recipes" page. This will take you to a page that displays all the recipes that have been published on the site. Recipes can now be sorted by title, date published, and author. 
- 
-4.Browse meal plans: To browse meal plans, go to the "Plans" page. This will take you to a page that displays all the meal plans that have been created on the site. Meal plans can be sorted by day of the week and meal type. 
- 
-5.User authentication: Users can now create an account, log in, and log out. Only authenticated users can add, edit, or delete recipes or meal plans. //NEW
- 
+python manage.py tests Tests.manual_tests.test_views/python manage.py tests Tests.manual_tests.test_models
 
-Usage: To use Cuisine Calendar, simply sign up and log in to the application. From there, you can start creating recipes and meal plans. 
+To run the dynamic tests, use the following command:
 
-Limitations: Cuisine Calendar is still a work in progress and there are some limitations to the site at the moment. For example, the user interface could be improved. Additionally, you can not yet generate a list of ingredients based on the recipes you have added to your meal plan. 
+python manage.py tests Tests.dynamic_tests.tests_views/python manage.py tests Tests.dynamic_tests.test_models
 
-Conclusion: Cuisine Calendar is a platform for food enthusiasts to plan their meals for the week. With a user-friendly interface and a range of features, it allows users to easily create and browse meal plans. 
+Security Measures
+We have implemented two security measures in our application. The first is HTTPS, which encrypts data sent between the 
+client and the server. However, due to issues with SSL configuration, HTTPS is not functioning as expected.
 
- 
+The second security measure we implemented is rate limiting with authentication. We have used the Django Ratelimit 
+library to limit the number of requests a user can make in a given time period. This helps prevent brute force attacks 
+on the authentication system. However, we have noticed that the library uses ugettext, which is not supported in the 
+latest version of Django.
+
+Configuration
+We have created two new files: settings_dev.py and settings_test.py, to improve the configuration. To launch the development server with the settings_dev.py file, use the following command:
+
+python manage.py runserver --settings=myproject.settings_dev
+
+To launch the test server with the settings_test.py file, use the following command:
+
+python manage.py testserver --settings=myproject.settings_test
+
+Secret Key
+We have placed the secret_key in a separate file called keys.py, which is ignored by Git.
+Conclusion
+The testing methodology and security measures taken in the development of the website ensure that the website functions as expected and is secure from potential attacks. The use of manual and dynamic tests ensures that the code changes do not introduce any regressions, while the implementation of HTTPS and authentication with rate-limiting provides an additional layer of security to the website.
