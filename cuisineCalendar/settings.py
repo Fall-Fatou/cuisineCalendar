@@ -13,7 +13,7 @@ from pathlib import Path
 from cuisineCalendar.keys import SECRET_KEY
 
 import os
-
+# Configuration of the environment
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'dev')
 if ENVIRONMENT == 'dev':
     from .settings_dev import *
@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mealplanner',
         'USER': 'root',
-        'PASSWORD': 'AmadouSow1290521',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
     }
 }

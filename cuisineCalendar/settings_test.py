@@ -67,7 +67,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mealplanner_test',
         'USER': 'root',
-        'PASSWORD': 'AmadouSow1290521',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
     }
 }
